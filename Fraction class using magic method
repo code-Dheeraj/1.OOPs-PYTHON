@@ -1,0 +1,39 @@
+class fraction:
+    
+    def __init__(self,a,b):
+        self.x=a
+        self.y=b
+    
+    def __str__(self):
+        return f"{self.x}/{self.y}"
+        
+    def __add__(self,other):
+        num=self.x*other.y+self.y*other.x
+        den=self.y*other.y
+        return f"{num}/{den}"
+        
+    def __sub__(self,other):
+        num=self.x*other.y-self.y*other.x
+        den=self.y*other.y
+        return f"{num}/{den}"
+        
+    def __mul__(self,other):
+        num=self.x*other.x
+        den=self.y*other.y
+        return f"{num}/{den}"
+        
+    def __truediv__(self,other):
+        num=self.x*other.y
+        den=self.y*other.x
+        return f"{num}/{den}"
+        
+fr1 = fraction(3,2)
+fr2 = fraction (5,3)
+print(fr1,"+",fr2,"= ",end=" ")
+print(fr1+fr2)
+print(fr1,"-",fr2,"= ",end=" ")
+print(fr1-fr2)
+print(fr1,"*",fr2,"= ",end=" ")
+print(fr1*fr2)
+print(fr1,"/",fr2,"= ",end=" ")
+print(fr1/fr2)
