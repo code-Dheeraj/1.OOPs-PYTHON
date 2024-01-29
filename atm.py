@@ -1,68 +1,68 @@
-class Atm:
+class atm:
     
     def __init__(self):
         self.pin=''
         self.balance=0
         self.menu()
-        
+    
     def menu(self):
-        user_input = input("""
-        select the menu
-        1. press 1 to create pin
-        2. press 2 to change pin
-        3. press 3 to check balance
-        4. press 4 to withdrawl
+        user_input=input("""
+        enter the number
+        1. create pin
+        2. change pin
+        3. check balance
+        4. withdraw
         5. exit
         """)
+        
         if user_input == '1':
-            self.create_pin()
+            self.createPin()
         elif user_input == '2':
-            self.change_pin()
-        elif user_input == '3':
+            self.changePin()
+        elif user_input =='3':
             self.check_balance()
-        elif user_input == '4':
-            self.withdrawl()
+        elif user_input =='4':
+            self.withdraw()
         else:
             exit()
-    
-    def create_pin(self):
-        user_pin=input("enter new pin")
-        self.balance=input('enter balance')
-        self.pin=user_pin
-        print("pin created sccessfully")
+        
+    def createPin(self):
+        newPin=int(input("enter you pin "))
+        self.pin=newPin
+        initialBalance=int(input("enter your initial balance "))
+        self.balance=initialBalance
+        print("Pin created successfully")
         self.menu()
         
-    def change_pin(self):
-        old_pin=input("enter you pin")
-        if(old_pin==self.pin):
-            new_pin=input('enter new pin')
-            self.pin=new_pin
-            print('pin changed successfully')
+    def changePin(self):
+        user_pin=int(input("enter your atm pin "))
+        if(user_pin==self.pin):
+            user_pin=int(input("enter your new pin "))
+            self.pin=user_pin
+            print("your pin has changed successfully")
         else:
-            print("enterd pin is wrong")
-        
+            print("your pin is wrong...")
         self.menu()
     
     def check_balance(self):
-        user_pin=input("enter your pin")
+        user_pin=int(input("enter you atm pin "))
         if(user_pin==self.pin):
-            print('balance', self.balance)
+            print("your balance ",self.balance)
         else:
-            print('pin is wrong')
+            print("your pin is wrong...")
         self.menu()
-        
-    def withdrawl(self):
-        user_pin=input("enter pin ")
+    
+    def withdraw(self):
+        user_pin=int(input("enter you atm pin "))
         if(user_pin==self.pin):
-            amount=int(input("enter amount to withdrawl"))
-            if(amount<self.balance):
-                self.balance=self.balance - amount
-                print('amount left : ',self.balance)
+            withdraw_amount=int(input("enter amount to withdraw "))
+            if(withdraw_amount<self.balance):
+                left_balance=self.balance-withdraw_amount
+                print("your current balance is :",left_balance)
             else:
-                print("chal gareeb")
+                print("insufficient funds ")
         else:
-            print("pin is wrong")
+            print("your pin is wrong...")
         self.menu()
 
-obj = Atm()
-        
+obj = atm()
