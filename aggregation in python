@@ -1,0 +1,25 @@
+class person:
+    
+    def __init__(self,name,age,gender,addr):
+        self.name=name
+        self.age=age
+        self.gender=gender
+        self.addr=addr
+    
+    def display(self):
+        print(self.name,self.age,self.gender,self.addr.get_city(),self.addr.pin,self.addr.distric,self.addr.state)
+    
+class address:
+    def __init__(self,city,pin,distric,state):
+        self.__city=city  # private variable
+        self.pin=pin
+        self.distric=distric
+        self.state=state
+    
+    def get_city(self):  # method to get private variable
+        return self.__city
+        
+ad = address("mohali",120301,"kharar","Chandigarh")
+p = person("Dheeraj",23,"Male",ad)
+
+p.display()
